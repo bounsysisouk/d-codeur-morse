@@ -56,7 +56,7 @@ const latinToMorse = {
 };
 function translateLatinCharacter(character) {
     const lettresMaj = character.toUpperCase();
-    if (lettresMaj === "") {
+    if (lettresMaj === " ") {
         return "/";
     }
     return latinToMorse[lettresMaj] || "";
@@ -72,11 +72,11 @@ function encode(text) {
     const lettreSaisie = getLatinCharacterList(text);
     const morseList = lettreSaisie.map((caract) => translateLatinCharacter(caract)).filter((code) => code !== "");
 
-    return morseList.join("")
+    return morseList.join(" ")
 }
 //TEST
 console.log(encode("SOS")); // resultat : ... --- ...
-console.log(encode("hey all")) // resultat : .....-.--.-.-...-..
+console.log(encode("hey all")) // resultat : .... . -.-- / .- .-.. .-..
 
 
 // Étape 4 : dictionnaire morseToLatin (annexe 2), getMorseCharacterList,
@@ -134,3 +134,19 @@ console.log(decode(".... . -.-- / .- .-.. .-.."));  //resultat : HEY ALL
 
 
 // Étape 5 : écouteurs de clic sur les deux boutons
+/*=====================================================
+    INTERFACE HTML + JAVASCRIPT
+=======================================================*/
+
+encodeBtn.addEventListener("click", () => {
+    const encoded = encode(latinInput.value);
+    morseInput.value = encoded;
+    morseOutput.textContent = encoded
+})
+
+decodeBtn.addEventListener("click", () => {
+    const decoded = decode(morseInput.value);
+    latinInput.value = decoded;
+    latinOutput.textContent = decoded
+
+})
