@@ -27,32 +27,32 @@ console.log(getLatinCharacterList("Bonjour, a tous"))
 ====================================================*/
 
 const latinToMorse = {
-	'A':'.-',
-	'B':'-...',
-	'C':'-.-.',
-	'D':'-..',
-	'E':'.',
-	'F':'..-.',
-	'G':'--.',
-	'H':'....',
-	'I':'..',
-	'J':'.---',
-	'K':'-.-',
-	'L':'.-..',
-	'M':'--',
-	'N':'-.',
-	'O':'---',
-	'P':'.--.',
-	'Q':'--.-',
-	'R':'.-.',
-	'S':'...',
-	'T':'-',
-	'U':'..-',
-	'V':'...-',
-	'W':'.--',
-	'X':'-..-',
-	'Y':'-.--',
-	'Z':'--..'
+    'A': '.-',
+    'B': '-...',
+    'C': '-.-.',
+    'D': '-..',
+    'E': '.',
+    'F': '..-.',
+    'G': '--.',
+    'H': '....',
+    'I': '..',
+    'J': '.---',
+    'K': '-.-',
+    'L': '.-..',
+    'M': '--',
+    'N': '-.',
+    'O': '---',
+    'P': '.--.',
+    'Q': '--.-',
+    'R': '.-.',
+    'S': '...',
+    'T': '-',
+    'U': '..-',
+    'V': '...-',
+    'W': '.--',
+    'X': '-..-',
+    'Y': '-.--',
+    'Z': '--..'
 };
 function translateLatinCharacter(character) {
     const lettresMaj = character.toUpperCase();
@@ -65,6 +65,18 @@ function translateLatinCharacter(character) {
 console.log(translateLatinCharacter("A")) // resultat: ".- "
 
 // Étape 3 : encode
+/*==================================================
+    ENCODER UN TEXTE EN MORSE
+====================================================*/
+function encode(text) {
+    const lettreSaisie = getLatinCharacterList(text);
+    const morseList = lettreSaisie.map((caract) => translateLatinCharacter(caract)).filter((code) => code !== "");
+
+    return morseList.join("")
+}
+//TEST
+console.log(encode("SOS")); // resultat : ...---...
+console.log(encode("hey all")) // resultat : .....-.--.-.-...-..
 
 
 // Étape 4 : dictionnaire morseToLatin (annexe 2), getMorseCharacterList,
