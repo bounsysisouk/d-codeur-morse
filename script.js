@@ -11,7 +11,13 @@ const latinOutput = document.querySelector("#latin-output");
 const decodeBtn = document.querySelector("#decode-btn");
 
 // Étape 1 : getLatinCharacterList
+function getLatinCharacterList(text) {
+    return text.split("");
+}
 
+//test
+console.log(getLatinCharacterList("Bonjour, a tous"))
+// Resultat obtenue: Array(15)0: "B"1: "o"2: "n"3: "j"4: "o"5: "u"6: "r"7: ","8: " "9: "a"10: " "11: "t"12: "o"13: "u"14: "s" length::15
 
 // Étape 2 : dictionnaire latinToMorse (annexe 1) et translateLatinCharacter
 
