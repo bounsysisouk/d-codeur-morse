@@ -1,0 +1,93 @@
+:root {
+  --creme: #f6f0e4;
+  --encre: #1d1a24;
+  --violet: #4b2a8f;
+  --rouge: #d6322f;
+  --trait: #d9cfba;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--encre);
+  font-family: "Barlow", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+header { margin-bottom: 2rem; }
+
+.kicker {
+  margin: 0 0 .25rem;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--rouge);
+}
+
+h1, h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1 { font-size: 3rem; color: var(--violet); }
+h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+.carte {
+  background: #fffaf0;
+  border: 1px solid var(--trait);
+  border-top: 4px solid var(--violet);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin: 1rem 0 .35rem;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+textarea {
+  width: 100%;
+  padding: .75rem;
+  border: 1px solid var(--trait);
+  background: #fff;
+  color: var(--encre);
+  font: 1.1rem/1.4 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid var(--violet);
+  outline-offset: 1px;
+}
+
+textarea[readonly] { background: #f1eadb; }
+
+button {
+  margin-top: .9rem;
+  padding: .6rem 1.4rem;
+  border: 0;
+  background: var(--violet);
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:hover { background: var(--rouge); }
+button:focus-visible { outline: 2px solid var(--rouge); outline-offset: 2px; }

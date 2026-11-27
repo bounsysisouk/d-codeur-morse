@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traducteur de morse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="kicker">Kata JS 6</p>
+      <h1>Traducteur de morse</h1>
+    </header>
+
+    <section class="carte">
+      <h2>Texte vers morse</h2>
+      <label for="latin-input">Texte</label>
+      <textarea id="latin-input" rows="3" placeholder="Hello, world"></textarea>
+      <button id="encode-btn" type="button">Encoder</button>
+      <label for="morse-output">Résultat en morse</label>
+      <textarea id="morse-output" rows="3" readonly></textarea>
+    </section>
+
+    <section class="carte">
+      <h2>Morse vers texte</h2>
+      <label for="morse-input">Morse</label>
+      <textarea id="morse-input" rows="3" placeholder=".... . .-.. .-.. --- / .-- --- .-. .-.. -.."></textarea>
+      <button id="decode-btn" type="button">Décoder</button>
+      <label for="latin-output">Résultat en texte</label>
+      <textarea id="latin-output" rows="3" readonly></textarea>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
