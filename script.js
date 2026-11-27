@@ -75,12 +75,62 @@ function encode(text) {
     return morseList.join("")
 }
 //TEST
-console.log(encode("SOS")); // resultat : ...---...
+console.log(encode("SOS")); // resultat : ... --- ...
 console.log(encode("hey all")) // resultat : .....-.--.-.-...-..
 
 
 // Étape 4 : dictionnaire morseToLatin (annexe 2), getMorseCharacterList,
 // translateMorseCharacter et decode
+/*=======================================================
+    DECODER DU MORSE VERS LE LATIN 
+========================================================*/
+const morseToLatin = {
+  '-': "T",
+  '--': "M",
+  '---': "O",
+  '--.': "G",
+  '--.-': "Q",
+  '--..': "Z",
+  '-.': "N",
+  '-.-': "K",
+  '-.--': "Y",
+  '-.-.': "C",
+  '-..': "D",
+  '-..-': "X",
+  '-...': "B",
+  '.': "E",
+  '.-': "A",
+  '.--': "W",
+  '.---': "J",
+  '.--.': "P",
+  '.-.': "R",
+  '.-..': "L",
+  '..': "I",
+  '..-': "U",
+  '..-.': "F",
+  '...': "S",
+  '...-': "V",
+  '....': "H"
+}
+function getMorseCharacterList(morseText) {
+    return morseText.trim().split(" ");
+}
+function translateMorseCharacter(morseCaract) {
+    if (morseCaract === "/") {
+        return " ";
+    }
+    return morseToLatin[morseCaract || ""];
+}
+function decode(morseText) {
+    if (!morseText.trim()) {
+        return "";
+    }
+    const morseCaractList = getMorseCharacterList(morseText);
+    return morseCaractList.map((Caract) => translateMorseCharacter(Caract)).join("");
+};
+// TEST
+console.log(decode("... --- ..."));  //resultat : SOS
+console.log(decode(".... . -.-- / .- .-.. .-.."));  //resultat : HEY ALL
 
 
 // Étape 5 : écouteurs de clic sur les deux boutons
